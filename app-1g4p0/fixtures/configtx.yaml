@@ -1,0 +1,634 @@
+################################################################################
+#
+#   SECTION : Profile
+#
+#   - Different configuration profiles may be encoded here to be specified
+#   as parameters to the configtxgen tool. The profiles which specify consortiums
+#   are to be used for generating the orderer genesis block.  With the correct
+#   consortium members defined in the orderer genesis block, channel creation
+#   requests may be generated with only the org member names and a consortium name
+#
+################################################################################
+Profiles:
+    SreOrgsOrdererGenesis:
+        Orderer:
+            <<: *OrdererDefaults
+            Organizations:
+                - *OrdererOrg
+        Consortiums:
+            SampleConsortium:
+                Organizations:
+                    - *Org1Zd
+                    - *Org2Zd
+                    - *Org3Zd
+                    - *Org4Zd
+                    - *Org5Zd
+                    - *Org6Zd
+                    - *Org7Zd
+                    - *Org8Zd
+                    - *Org9Zd
+                    - *Org10Zd
+                    - *Org11Zd
+                    - *Org12Zd
+                    - *Org13Zd
+                    - *Org14Zd
+                    - *Org15Zd
+                    - *Org16Zd
+                    - *Org17Zd
+                    - *Org18Zd
+                    - *Org19Zd
+                    - *Org20Zd
+                    - *Org21Zd
+                    - *Org22Zd
+                    - *Org23Zd
+                    - *Org24Zd
+                    - *Org25Zd
+                    - *Org26Zd
+                    - *Org27Zd
+                    - *Org28Zd
+                    - *Org29Zd
+                    - *Org30Zd
+                    - *Org31Zd
+                    - *Org32Zd
+                    - *Org33Zd
+                    - *Org34Zd
+                    - *Org35Zd
+                    - *Org36Zd
+                    - *Org37Zd
+                    - *Org38Zd
+                    - *Org39Zd
+                    - *Org40Zd
+                    - *Org41Zd
+                    - *Org42Zd
+                    - *Org43Zd
+                    - *Org44Zd
+                    - *Org45Zd
+                    - *Org46Zd
+                    - *Org47Zd
+                    - *Org48Zd
+                    - *Org49Zd
+                    - *Org50Zd
+
+    SreOrgsChannel:
+        Consortium: SampleConsortium
+        Application:
+            <<: *ApplicationDefaults
+            Organizations:
+                - *Org1Zd
+                - *Org2Zd
+                - *Org3Zd
+                - *Org4Zd
+                - *Org5Zd
+                - *Org6Zd
+                - *Org7Zd
+                - *Org8Zd
+                - *Org9Zd
+                - *Org10Zd
+                - *Org11Zd
+                - *Org12Zd
+                - *Org13Zd
+                - *Org14Zd
+                - *Org15Zd
+                - *Org16Zd
+                - *Org17Zd
+                - *Org18Zd
+                - *Org19Zd
+                - *Org20Zd
+                - *Org21Zd
+                - *Org22Zd
+                - *Org23Zd
+                - *Org24Zd
+                - *Org25Zd
+                - *Org26Zd
+                - *Org27Zd
+                - *Org28Zd
+                - *Org29Zd
+                - *Org30Zd
+                - *Org31Zd
+                - *Org32Zd
+                - *Org33Zd
+                - *Org34Zd
+                - *Org35Zd
+                - *Org36Zd
+                - *Org37Zd
+                - *Org38Zd
+                - *Org39Zd
+                - *Org40Zd
+                - *Org41Zd
+                - *Org42Zd
+                - *Org43Zd
+                - *Org44Zd
+                - *Org45Zd
+                - *Org46Zd
+                - *Org47Zd
+                - *Org48Zd
+                - *Org49Zd
+                - *Org50Zd
+################################################################################
+#
+#   SECTION: Organizations
+#
+#   - This section defines the different organizational identities which will
+#   be referenced later in the configuration.
+#
+################################################################################
+Organizations:
+    - &OrdererOrg
+        Name: OrdererOrg
+        ID: hf.srezd.io
+        AdminPrincipal: Role.ADMIN
+        MSPDir: crypto-config/ordererOrganizations/hf.srezd.io/msp
+
+    - &Org1Zd
+        Name: org1.hf.srezd.io
+        ID: org1.hf.srezd.io
+        AdminPrincipal: Role.ADMIN
+        MSPDir: crypto-config/peerOrganizations/org1.hf.srezd.io/msp
+        AnchorPeers:
+            - Host: peer0.org1.hf.srezd.io
+              Port: 7051
+
+    - &Org2Zd
+        Name: org2.hf.srezd.io
+        ID: org2.hf.srezd.io
+        AdminPrincipal: Role.ADMIN
+        MSPDir: crypto-config/peerOrganizations/org2.hf.srezd.io/msp
+        AnchorPeers:
+            - Host: peer0.org2.hf.srezd.io
+              Port: 7051
+
+    - &Org3Zd
+        Name: org3.hf.srezd.io
+        ID: org3.hf.srezd.io
+        AdminPrincipal: Role.ADMIN
+        MSPDir: crypto-config/peerOrganizations/org3.hf.srezd.io/msp
+        AnchorPeers:
+            - Host: peer0.org3.hf.srezd.io
+              Port: 7051
+
+    - &Org4Zd
+        Name: org4.hf.srezd.io
+        ID: org4.hf.srezd.io
+        AdminPrincipal: Role.ADMIN
+        MSPDir: crypto-config/peerOrganizations/org4.hf.srezd.io/msp
+        AnchorPeers:
+            - Host: peer0.org4.hf.srezd.io
+              Port: 7051
+            - Host: peer1.org4.hf.srezd.io
+              Port: 8051
+
+    - &Org5Zd
+        Name: org5.hf.srezd.io
+        ID: org5.hf.srezd.io
+        AdminPrincipal: Role.ADMIN
+        MSPDir: crypto-config/peerOrganizations/org5.hf.srezd.io/msp
+        AnchorPeers:
+            - Host: peer0.org5.hf.srezd.io
+              Port: 7051
+
+    - &Org6Zd
+        Name: org6.hf.srezd.io
+        ID: org6.hf.srezd.io
+        AdminPrincipal: Role.ADMIN
+        MSPDir: crypto-config/peerOrganizations/org6.hf.srezd.io/msp
+        AnchorPeers:
+            - Host: peer0.org6.hf.srezd.io
+              Port: 7051
+    - &Org7Zd
+        Name: org7.hf.srezd.io
+        ID: org7.hf.srezd.io
+        AdminPrincipal: Role.ADMIN
+        MSPDir: crypto-config/peerOrganizations/org7.hf.srezd.io/msp
+        AnchorPeers:
+            - Host: peer0.org7.hf.srezd.io
+              Port: 7051
+
+    - &Org8Zd
+        Name: org8.hf.srezd.io
+        ID: org8.hf.srezd.io
+        AdminPrincipal: Role.ADMIN
+        MSPDir: crypto-config/peerOrganizations/org8.hf.srezd.io/msp
+        AnchorPeers:
+            - Host: peer0.org8.hf.srezd.io
+              Port: 7051
+
+    - &Org9Zd
+        Name: org9.hf.srezd.io
+        ID: org9.hf.srezd.io
+        AdminPrincipal: Role.ADMIN
+        MSPDir: crypto-config/peerOrganizations/org9.hf.srezd.io/msp
+        AnchorPeers:
+            - Host: peer0.org9.hf.srezd.io
+              Port: 7051
+
+    - &Org10Zd
+        Name: org10.hf.srezd.io
+        ID: org10.hf.srezd.io
+        AdminPrincipal: Role.ADMIN
+        MSPDir: crypto-config/peerOrganizations/org10.hf.srezd.io/msp
+        AnchorPeers:
+            - Host: peer0.org10.hf.srezd.io
+              Port: 7051
+
+    - &Org11Zd
+        Name: org11.hf.srezd.io
+        ID: org11.hf.srezd.io
+        AdminPrincipal: Role.ADMIN
+        MSPDir: crypto-config/peerOrganizations/org11.hf.srezd.io/msp
+        AnchorPeers:
+            - Host: peer0.org11.hf.srezd.io
+              Port: 7051
+
+    - &Org12Zd
+        Name: org12.hf.srezd.io
+        ID: org12.hf.srezd.io
+        AdminPrincipal: Role.ADMIN
+        MSPDir: crypto-config/peerOrganizations/org12.hf.srezd.io/msp
+        AnchorPeers:
+            - Host: peer0.org12.hf.srezd.io
+              Port: 7051
+
+    - &Org13Zd
+        Name: org13.hf.srezd.io
+        ID: org13.hf.srezd.io
+        AdminPrincipal: Role.ADMIN
+        MSPDir: crypto-config/peerOrganizations/org13.hf.srezd.io/msp
+        AnchorPeers:
+            - Host: peer0.org13.hf.srezd.io
+              Port: 7051
+
+    - &Org14Zd
+        Name: org14.hf.srezd.io
+        ID: org14.hf.srezd.io
+        AdminPrincipal: Role.ADMIN
+        MSPDir: crypto-config/peerOrganizations/org14.hf.srezd.io/msp
+        AnchorPeers:
+            - Host: peer0.org14.hf.srezd.io
+              Port: 7051
+
+    - &Org15Zd
+        Name: org15.hf.srezd.io
+        ID: org15.hf.srezd.io
+        AdminPrincipal: Role.ADMIN
+        MSPDir: crypto-config/peerOrganizations/org15.hf.srezd.io/msp
+        AnchorPeers:
+            - Host: peer0.org15.hf.srezd.io
+              Port: 7051
+
+    - &Org16Zd
+        Name: org16.hf.srezd.io
+        ID: org16.hf.srezd.io
+        AdminPrincipal: Role.ADMIN
+        MSPDir: crypto-config/peerOrganizations/org16.hf.srezd.io/msp
+        AnchorPeers:
+            - Host: peer0.org16.hf.srezd.io
+              Port: 7051
+    - &Org17Zd
+        Name: org17.hf.srezd.io
+        ID: org17.hf.srezd.io
+        AdminPrincipal: Role.ADMIN
+        MSPDir: crypto-config/peerOrganizations/org17.hf.srezd.io/msp
+        AnchorPeers:
+            - Host: peer0.org17.hf.srezd.io
+              Port: 7051
+
+    - &Org18Zd
+        Name: org18.hf.srezd.io
+        ID: org18.hf.srezd.io
+        AdminPrincipal: Role.ADMIN
+        MSPDir: crypto-config/peerOrganizations/org18.hf.srezd.io/msp
+        AnchorPeers:
+            - Host: peer0.org18.hf.srezd.io
+              Port: 7051
+
+    - &Org19Zd
+        Name: org19.hf.srezd.io
+        ID: org19.hf.srezd.io
+        AdminPrincipal: Role.ADMIN
+        MSPDir: crypto-config/peerOrganizations/org19.hf.srezd.io/msp
+        AnchorPeers:
+            - Host: peer0.org19.hf.srezd.io
+              Port: 7051
+
+    - &Org20Zd
+        Name: org20.hf.srezd.io
+        ID: org20.hf.srezd.io
+        AdminPrincipal: Role.ADMIN
+        MSPDir: crypto-config/peerOrganizations/org20.hf.srezd.io/msp
+        AnchorPeers:
+            - Host: peer0.org20.hf.srezd.io
+              Port: 7051
+
+    - &Org21Zd
+        Name: org21.hf.srezd.io
+        ID: org21.hf.srezd.io
+        AdminPrincipal: Role.ADMIN
+        MSPDir: crypto-config/peerOrganizations/org21.hf.srezd.io/msp
+        AnchorPeers:
+            - Host: peer0.org21.hf.srezd.io
+              Port: 7051
+
+    - &Org22Zd
+        Name: org22.hf.srezd.io
+        ID: org22.hf.srezd.io
+        AdminPrincipal: Role.ADMIN
+        MSPDir: crypto-config/peerOrganizations/org22.hf.srezd.io/msp
+        AnchorPeers:
+            - Host: peer0.org22.hf.srezd.io
+              Port: 7051
+
+    - &Org23Zd
+        Name: org23.hf.srezd.io
+        ID: org23.hf.srezd.io
+        AdminPrincipal: Role.ADMIN
+        MSPDir: crypto-config/peerOrganizations/org23.hf.srezd.io/msp
+        AnchorPeers:
+            - Host: peer0.org23.hf.srezd.io
+              Port: 7051
+
+    - &Org24Zd
+        Name: org24.hf.srezd.io
+        ID: org24.hf.srezd.io
+        AdminPrincipal: Role.ADMIN
+        MSPDir: crypto-config/peerOrganizations/org24.hf.srezd.io/msp
+        AnchorPeers:
+            - Host: peer0.org24.hf.srezd.io
+              Port: 7051
+
+    - &Org25Zd
+        Name: org25.hf.srezd.io
+        ID: org25.hf.srezd.io
+        AdminPrincipal: Role.ADMIN
+        MSPDir: crypto-config/peerOrganizations/org25.hf.srezd.io/msp
+        AnchorPeers:
+            - Host: peer0.org25.hf.srezd.io
+              Port: 7051
+
+    - &Org26Zd
+        Name: org26.hf.srezd.io
+        ID: org26.hf.srezd.io
+        AdminPrincipal: Role.ADMIN
+        MSPDir: crypto-config/peerOrganizations/org26.hf.srezd.io/msp
+        AnchorPeers:
+            - Host: peer0.org26.hf.srezd.io
+              Port: 7051
+    - &Org27Zd
+        Name: org27.hf.srezd.io
+        ID: org27.hf.srezd.io
+        AdminPrincipal: Role.ADMIN
+        MSPDir: crypto-config/peerOrganizations/org27.hf.srezd.io/msp
+        AnchorPeers:
+            - Host: peer0.org27.hf.srezd.io
+              Port: 7051
+
+    - &Org28Zd
+        Name: org28.hf.srezd.io
+        ID: org28.hf.srezd.io
+        AdminPrincipal: Role.ADMIN
+        MSPDir: crypto-config/peerOrganizations/org28.hf.srezd.io/msp
+        AnchorPeers:
+            - Host: peer0.org28.hf.srezd.io
+              Port: 7051
+
+    - &Org29Zd
+        Name: org29.hf.srezd.io
+        ID: org29.hf.srezd.io
+        AdminPrincipal: Role.ADMIN
+        MSPDir: crypto-config/peerOrganizations/org29.hf.srezd.io/msp
+        AnchorPeers:
+            - Host: peer0.org29.hf.srezd.io
+              Port: 7051
+
+    - &Org30Zd
+        Name: org30.hf.srezd.io
+        ID: org30.hf.srezd.io
+        AdminPrincipal: Role.ADMIN
+        MSPDir: crypto-config/peerOrganizations/org30.hf.srezd.io/msp
+        AnchorPeers:
+            - Host: peer0.org30.hf.srezd.io
+              Port: 7051
+
+    - &Org31Zd
+        Name: org31.hf.srezd.io
+        ID: org31.hf.srezd.io
+        AdminPrincipal: Role.ADMIN
+        MSPDir: crypto-config/peerOrganizations/org31.hf.srezd.io/msp
+        AnchorPeers:
+            - Host: peer0.org31.hf.srezd.io
+              Port: 7051
+
+    - &Org32Zd
+        Name: org32.hf.srezd.io
+        ID: org32.hf.srezd.io
+        AdminPrincipal: Role.ADMIN
+        MSPDir: crypto-config/peerOrganizations/org32.hf.srezd.io/msp
+        AnchorPeers:
+            - Host: peer0.org32.hf.srezd.io
+              Port: 7051
+
+    - &Org33Zd
+        Name: org33.hf.srezd.io
+        ID: org33.hf.srezd.io
+        AdminPrincipal: Role.ADMIN
+        MSPDir: crypto-config/peerOrganizations/org33.hf.srezd.io/msp
+        AnchorPeers:
+            - Host: peer0.org33.hf.srezd.io
+              Port: 7051
+
+    - &Org34Zd
+        Name: org34.hf.srezd.io
+        ID: org34.hf.srezd.io
+        AdminPrincipal: Role.ADMIN
+        MSPDir: crypto-config/peerOrganizations/org34.hf.srezd.io/msp
+        AnchorPeers:
+            - Host: peer0.org34.hf.srezd.io
+              Port: 7051
+
+    - &Org35Zd
+        Name: org35.hf.srezd.io
+        ID: org35.hf.srezd.io
+        AdminPrincipal: Role.ADMIN
+        MSPDir: crypto-config/peerOrganizations/org35.hf.srezd.io/msp
+        AnchorPeers:
+            - Host: peer0.org35.hf.srezd.io
+              Port: 7051
+
+    - &Org36Zd
+        Name: org36.hf.srezd.io
+        ID: org36.hf.srezd.io
+        AdminPrincipal: Role.ADMIN
+        MSPDir: crypto-config/peerOrganizations/org36.hf.srezd.io/msp
+        AnchorPeers:
+            - Host: peer0.org36.hf.srezd.io
+              Port: 7051
+    - &Org37Zd
+        Name: org37.hf.srezd.io
+        ID: org37.hf.srezd.io
+        AdminPrincipal: Role.ADMIN
+        MSPDir: crypto-config/peerOrganizations/org37.hf.srezd.io/msp
+        AnchorPeers:
+            - Host: peer0.org37.hf.srezd.io
+              Port: 7051
+
+    - &Org38Zd
+        Name: org38.hf.srezd.io
+        ID: org38.hf.srezd.io
+        AdminPrincipal: Role.ADMIN
+        MSPDir: crypto-config/peerOrganizations/org38.hf.srezd.io/msp
+        AnchorPeers:
+            - Host: peer0.org38.hf.srezd.io
+              Port: 7051
+
+    - &Org39Zd
+        Name: org39.hf.srezd.io
+        ID: org39.hf.srezd.io
+        AdminPrincipal: Role.ADMIN
+        MSPDir: crypto-config/peerOrganizations/org39.hf.srezd.io/msp
+        AnchorPeers:
+            - Host: peer0.org39.hf.srezd.io
+              Port: 7051
+
+    - &Org40Zd
+        Name: org40.hf.srezd.io
+        ID: org40.hf.srezd.io
+        AdminPrincipal: Role.ADMIN
+        MSPDir: crypto-config/peerOrganizations/org40.hf.srezd.io/msp
+        AnchorPeers:
+            - Host: peer0.org40.hf.srezd.io
+              Port: 7051
+
+    - &Org41Zd
+        Name: org41.hf.srezd.io
+        ID: org41.hf.srezd.io
+        AdminPrincipal: Role.ADMIN
+        MSPDir: crypto-config/peerOrganizations/org41.hf.srezd.io/msp
+        AnchorPeers:
+            - Host: peer0.org41.hf.srezd.io
+              Port: 7051
+
+    - &Org42Zd
+        Name: org42.hf.srezd.io
+        ID: org42.hf.srezd.io
+        AdminPrincipal: Role.ADMIN
+        MSPDir: crypto-config/peerOrganizations/org42.hf.srezd.io/msp
+        AnchorPeers:
+            - Host: peer0.org42.hf.srezd.io
+              Port: 7051
+
+    - &Org43Zd
+        Name: org43.hf.srezd.io
+        ID: org43.hf.srezd.io
+        AdminPrincipal: Role.ADMIN
+        MSPDir: crypto-config/peerOrganizations/org43.hf.srezd.io/msp
+        AnchorPeers:
+            - Host: peer0.org43.hf.srezd.io
+              Port: 7051
+
+    - &Org44Zd
+        Name: org44.hf.srezd.io
+        ID: org44.hf.srezd.io
+        AdminPrincipal: Role.ADMIN
+        MSPDir: crypto-config/peerOrganizations/org44.hf.srezd.io/msp
+        AnchorPeers:
+            - Host: peer0.org44.hf.srezd.io
+              Port: 7051
+
+    - &Org45Zd
+        Name: org45.hf.srezd.io
+        ID: org45.hf.srezd.io
+        AdminPrincipal: Role.ADMIN
+        MSPDir: crypto-config/peerOrganizations/org45.hf.srezd.io/msp
+        AnchorPeers:
+            - Host: peer0.org45.hf.srezd.io
+              Port: 7051
+
+    - &Org46Zd
+        Name: org46.hf.srezd.io
+        ID: org46.hf.srezd.io
+        AdminPrincipal: Role.ADMIN
+        MSPDir: crypto-config/peerOrganizations/org46.hf.srezd.io/msp
+        AnchorPeers:
+            - Host: peer0.org46.hf.srezd.io
+              Port: 7051
+    - &Org47Zd
+        Name: org47.hf.srezd.io
+        ID: org47.hf.srezd.io
+        AdminPrincipal: Role.ADMIN
+        MSPDir: crypto-config/peerOrganizations/org47.hf.srezd.io/msp
+        AnchorPeers:
+            - Host: peer0.org47.hf.srezd.io
+              Port: 7051
+
+    - &Org48Zd
+        Name: org48.hf.srezd.io
+        ID: org48.hf.srezd.io
+        AdminPrincipal: Role.ADMIN
+        MSPDir: crypto-config/peerOrganizations/org48.hf.srezd.io/msp
+        AnchorPeers:
+            - Host: peer0.org48.hf.srezd.io
+              Port: 7051
+
+    - &Org49Zd
+        Name: org49.hf.srezd.io
+        ID: org49.hf.srezd.io
+        AdminPrincipal: Role.ADMIN
+        MSPDir: crypto-config/peerOrganizations/org49.hf.srezd.io/msp
+        AnchorPeers:
+            - Host: peer0.org49.hf.srezd.io
+              Port: 7051
+
+    - &Org50Zd
+        Name: org50.hf.srezd.io
+        ID: org50.hf.srezd.io
+        AdminPrincipal: Role.ADMIN
+        MSPDir: crypto-config/peerOrganizations/org50.hf.srezd.io/msp
+        AnchorPeers:
+            - Host: peer0.org50.hf.srezd.io
+              Port: 7051
+################################################################################
+#
+#   SECTION: Orderer
+#
+#   - This section defines the values to encode into a config transaction or
+#   genesis block for orderer related parameters.
+#
+################################################################################
+Orderer: &OrdererDefaults
+    OrdererType: solo
+    Addresses:
+        - orderer.hf.srezd.io:7050
+    BatchTimeout: 5s
+    # Batch Size: Controls the number of messages batched into a block.
+    BatchSize:
+        # Max Message Count: The maximum number of messages to permit in a batch.
+        MaxMessageCount: 10
+        # Absolute Max Bytes: The absolute maximum number of bytes allowed for
+        # the serialized messages in a batch. If the "kafka" OrdererType is
+        # selected, set 'message.max.bytes' and 'replica.fetch.max.bytes' on the
+        # Kafka brokers to a value that is larger than this one.
+        AbsoluteMaxBytes: 98 MB
+        # Preferred Max Bytes: The preferred maximum number of bytes allowed for
+        # the serialized messages in a batch. A message larger than the
+        # preferred max bytes will result in a batch larger than preferred max
+        # bytes.
+        PreferredMaxBytes: 512 KB
+    # Max Channels is the maximum number of channels to allow on the ordering
+    # network. When set to 0, this implies no maximum number of channels.
+    MaxChannels: 0
+    Kafka:
+        Brokers:
+            - 127.0.0.1:9092
+    # Organizations is the list of orgs which are defined as participants on
+    # the orderer side of the network.
+    Organizations:
+
+################################################################################
+#
+#   SECTION: Application
+#
+#   - This section defines the values to encode into a config transaction or
+#   genesis block for application related parameters.
+#
+################################################################################
+Application: &ApplicationDefaults
+    Organizations:

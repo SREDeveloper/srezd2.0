@@ -1,0 +1,8 @@
+version: '2'
+
+services:
+  couchdb1:
+    container_name: couchdb1
+    image: hyperledger/fabric-couchdb
+    ports:
+      - "6984:5984"

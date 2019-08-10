@@ -1,0 +1,318 @@
+name: "sys-7g1-network"
+#
+# Schema version of the content. Used by the SDK to apply the corresponding parsing rules.
+#
+version: 1.0.0
+
+#
+# The client section used by GO SDK.
+#
+client:
+
+  # Which organization does this application instance belong to? The value must be the name of an org
+  # defined under "organizations"
+  organization: org1
+
+  logging:
+    level: info
+
+  # Global configuration for peer, event service and orderer timeouts
+  # if this this section is omitted, then default values will be used (same values as below)
+#  peer:
+#    timeout:
+#      connection: 10s
+#      response: 180s
+#      discovery:
+#        # Expiry period for discovery service greylist filter
+#        # The channel client will greylist peers that are found to be offline
+#        # to prevent re-selecting them in subsequent retries.
+#        # This interval will define how long a peer is greylisted
+#        greylistExpiry: 10s
+#  eventService:
+#    # Event service type (optional). If not specified then the type is automatically
+#    # determined from channel capabilities.
+#    type: (deliver|eventhub)
+    # the below timeouts are commented out to use the default values that are found in
+    # "pkg/fab/endpointconfig.go"
+    # the client is free to override the default values by uncommenting and resetting
+    # the values as they see fit in their config file
+#    timeout:
+#      connection: 15s
+#      registrationResponse: 15s
+#  orderer:
+#    timeout:
+#      connection: 15s
+#      response: 15s
+#  global:
+#    timeout:
+#      query: 180s
+#      execute: 180s
+#      resmgmt: 180s
+#    cache:
+#      connectionIdle: 30s
+#      eventServiceIdle: 2m
+#      channelConfig: 30m
+#      channelMembership: 30s
+#      discovery: 10s
+#      selection: 10m
+
+  # Root of the MSP directories with keys and certs.
+  cryptoconfig:
+    path: ${GOPATH}/src/github.com/srezd/sys-6g1p1/fixtures/crypto-config
+
+  # Some SDKs support pluggable KV stores, the properties under "credentialStore"
+  # are implementation specific
+  credentialStore:
+    path: /tmp/sys-6g1p1-store
+
+    # [Optional]. Specific to the CryptoSuite implementation used by GO SDK. Software-based implementations
+    # requiring a key store. PKCS#11 based implementations does not.
+    cryptoStore:
+      path: /tmp/sys-6g1p1-msp
+
+   # BCCSP config for the client. Used by GO SDK.
+  BCCSP:
+    security:
+     enabled: true
+     default:
+      provider: "SW"
+     hashAlgorithm: "SHA2"
+     softVerify: true
+     level: 256
+
+  tlsCerts:
+    # [Optional]. Use system certificate pool when connecting to peers, orderers (for negotiating TLS) Default: false
+    systemCertPool: false
+
+    # [Optional]. Client key and cert for TLS handshake with peers and orderers
+    client:
+      keyfile:
+      certfile:
+
+#
+# [Optional]. But most apps would have this section so that channel objects can be constructed
+# based on the content below. If an app is creating channels, then it likely will not need this
+# section.
+#
+channels:
+  # name of the channel
+  srezd:
+    # Required. list of orderers designated by the application to use for transactions on this
+    # channel. This list can be a result of access control ("org1" can only access "ordererA"), or
+    # operational decisions to share loads from applications among the orderers.  The values must
+    # be "names" of orgs defined under "organizations/peers"
+    # deprecated: not recommended, to override any orderer configuration items, entity matchers should be used.
+    # orderers:
+    #  - orderer.hf.srezd.io
+
+    # Required. list of peers from participating orgs
+    peers:
+      peer1.org1.hf.srezd.io:
+        endorsingPeer: true
+        chaincodeQuery: true
+        ledgerQuery: true
+        eventSource: true
+    policies:
+      #[Optional] options for retrieving channel configuration blocks
+      queryChannelConfig:
+        #[Optional] min number of success responses (from targets/peers)
+        minResponses: 1
+        #[Optional] channel config will be retrieved for these number of random targets
+        maxTargets: 1
+        #[Optional] retry options for query config block
+        retryOpts:
+          #[Optional] number of retry attempts
+          attempts: 5
+          #[Optional] the back off interval for the first retry attempt
+          initialBackoff: 500ms
+          #[Optional] the maximum back off interval for any retry attempt
+          maxBackoff: 5s
+          #[Optional] he factor by which the initial back off period is exponentially incremented
+          backoffFactor: 2.0
+
+#
+# list of participating organizations in this network
+#
+organizations:
+  org1:
+    mspid: org1.hf.srezd.io
+    cryptoPath: peerOrganizations/org1.hf.srezd.io/users/{userName}@org1.hf.srezd.io/msp
+    peers:
+      - peer0.org1.hf.srezd.io
+      - peer1.org1.hf.srezd.io
+      - peer2.org1.hf.srezd.io
+      - peer3.org1.hf.srezd.io
+      - peer4.org1.hf.srezd.io
+      - peer5.org1.hf.srezd.io
+      - peer6.org1.hf.srezd.io
+      - peer7.org1.hf.srezd.io
+
+  org2:
+    mspid: org2.hf.srezd.io
+    cryptoPath: peerOrganizations/org2.hf.srezd.io/users/{userName}@org2.hf.srezd.io/msp
+    peers:
+      - peer0.org2.hf.srezd.io
+      - peer1.org2.hf.srezd.io
+ 
+  org3:
+    mspid: org3.hf.srezd.io
+    cryptoPath: peerOrganizations/org3.hf.srezd.io/users/{userName}@org3.hf.srezd.io/msp
+    peers:
+      - peer0.org3.hf.srezd.io
+      - peer1.org3.hf.srezd.io
+
+  org4:
+    mspid: org4.hf.srezd.io
+    cryptoPath: peerOrganizations/org4.hf.srezd.io/users/{userName}@org4.hf.srezd.io/msp
+    peers:
+      - peer0.org4.hf.srezd.io
+      - peer1.org4.hf.srezd.io
+
+  org5:
+    mspid: org5.hf.srezd.io
+    cryptoPath: peerOrganizations/org5.hf.srezd.io/users/{userName}@org5.hf.srezd.io/msp
+    peers:
+      - peer0.org5.hf.srezd.io
+      - peer1.org5.hf.srezd.io
+      - peer2.org5.hf.srezd.io
+  
+  org6:
+    mspid: org6.hf.srezd.io
+    cryptoPath: peerOrganizations/org6.hf.srezd.io/users/{userName}@org6.hf.srezd.io/msp
+    peers:
+      - peer0.org6.hf.srezd.io
+      - peer1.org6.hf.srezd.io
+      - peer2.org6.hf.srezd.io
+      - peer3.org6.hf.srezd.io
+  ordererorg:
+    # Membership Service Provider ID for this organization
+    mspID: hf.srezd.io
+
+    # Needed to load users crypto keys and certs for this org (absolute path or relative to global crypto path, DEV mode)
+    cryptoPath: ordererOrganizations/hf.srezd.io/users/{username}@hf.srezd.io/msp
+
+#
+# List of orderers to send transaction and channel create/update requests to. For the time
+# being only one orderer is needed. If more than one is defined, which one get used by the
+# SDK is implementation specific. Consult each SDK's documentation for its handling of orderers.
+#
+orderers:
+  orderer.hf.srezd.io:
+    url: localhost:7050
+
+    # these are standard properties defined by the gRPC library
+    # they will be passed in as-is to gRPC client constructor
+    grpcOptions:
+      ssl-target-name-override: orderer.hf.srezd.io
+      # These parameters should be set in coordination with the keepalive policy on the server,
+      # as incompatible settings can result in closing of connection.
+      # When duration of the 'keep-alive-time' is set to 0 or less the keep alive client parameters are disabled
+      keep-alive-time: 0s
+      keep-alive-timeout: 20s
+      keep-alive-permit: false
+      fail-fast: false
+      # allow-insecure will be taken into consideration if address has no protocol defined, if true then grpc or else grpcs
+      allow-insecure: false
+
+    tlsCACerts:
+      # Certificate location absolute path
+      path: ${GOPATH}/src/github.com/srezd/sys-6g1p1/fixtures/crypto-config/ordererOrganizations/hf.srezd.io/tlsca/tlsca.hf.srezd.io-cert.pem
+#
+# List of peers to send various requests to, including endorsement, query
+# and event listener registration.
+#
+peers:
+  peer1.org1.hf.srezd.io:
+    # this URL is used to send endorsement and query requests
+    url: localhost:8051
+    # eventUrl is only needed when using eventhub (default is delivery service)
+    eventUrl: localhost:8053
+
+    grpcOptions:
+      ssl-target-name-override: peer1.org1.hf.srezd.io
+      # These parameters should be set in coordination with the keepalive policy on the server,
+      # as incompatible settings can result in closing of connection.
+      # When duration of the 'keep-alive-time' is set to 0 or less the keep alive client parameters are disabled
+      keep-alive-time: 0s
+      keep-alive-timeout: 20s
+      keep-alive-permit: false
+      fail-fast: false
+      # allow-insecure will be taken into consideration if address has no protocol defined, if true then grpc or else grpcs
+      allow-insecure: false
+
+    tlsCACerts:
+      # Certificate location absolute path
+      path: ${GOPATH}/src/github.com/srezd/sys-6g1p1/fixtures/crypto-config/peerOrganizations/org1.hf.srezd.io/tlsca/tlsca.org1.hf.srezd.io-cert.pem
+ 
+entityMatchers:
+  peer:
+    - pattern: (\w*)peer0.org1.hf.srezd.io(\w*)
+      urlSubstitutionExp: localhost:7051
+      eventUrlSubstitutionExp: localhost:7053
+      sslTargetOverrideUrlSubstitutionExp: peer0.org1.hf.srezd.io
+      mappedHost: peer0.org1.hf.srezd.io
+
+    - pattern: (\w*)peer1.org1.hf.srezd.io(\w*)
+      urlSubstitutionExp: localhost:8051
+      eventUrlSubstitutionExp: localhost:8053
+      sslTargetOverrideUrlSubstitutionExp: peer1.org1.hf.srezd.io
+      mappedHost: peer1.org1.hf.srezd.io 
+    
+    - pattern: (\w*).org1.hf.srezd.(\w*):(\d+)
+      urlSubstitutionExp: localhost:$2
+      eventUrlSubstitutionExp: localhost:$3
+      sslTargetOverrideUrlSubstitutionExp: $1.org1.hf.srezd.io
+      mappedHost: $1.org1.hf.srezd.io
+
+    - pattern: (\w*).org2.hf.srezd.(\w*):(\d+)
+      urlSubstitutionExp: localhost:$2
+      eventUrlSubstitutionExp: localhost:$3
+      sslTargetOverrideUrlSubstitutionExp: $1.org2.hf.srezd.io
+      mappedHost: $1.org2.hf.srezd.io
+ 
+    - pattern: (\w*).org3.hf.srezd.(\w*):(\d+)
+      urlSubstitutionExp: localhost:$2
+      eventUrlSubstitutionExp: localhost:$3
+      sslTargetOverrideUrlSubstitutionExp: $1.org3.hf.srezd.io
+      mappedHost: $1.org3.hf.srezd.io
+    
+    - pattern: (\w*).org4.hf.srezd.(\w*):(\d+)
+      urlSubstitutionExp: localhost:$2
+      eventUrlSubstitutionExp: localhost:$3
+      sslTargetOverrideUrlSubstitutionExp: $1.org4.hf.srezd.io
+      mappedHost: $1.org4.hf.srezd.io
+
+    - pattern: (\w*).org5.hf.srezd.(\w*):(\d+)
+      urlSubstitutionExp: localhost:$2
+      eventUrlSubstitutionExp: localhost:$3
+      sslTargetOverrideUrlSubstitutionExp: $1.org5.hf.srezd.io
+      mappedHost: $1.org5.hf.srezd.io
+ 
+    - pattern: (\w*).org6.hf.srezd.(\w*):(\d+)
+      urlSubstitutionExp: localhost:$2
+      eventUrlSubstitutionExp: localhost:$3
+      sslTargetOverrideUrlSubstitutionExp: $1.org6.hf.srezd.io
+      mappedHost: $1.org6.hf.srezd.io
+
+    - pattern: (\w*):7051
+      urlSubstitutionExp: localhost:7051
+      eventUrlSubstitutionExp: localhost:7053
+      sslTargetOverrideUrlSubstitutionExp: peer0.org1.hf.srezd.io
+      mappedHost: peer0.org1.hf.srezd.io
+
+    - pattern: (\w*):8051
+      urlSubstitutionExp: localhost:8051
+      eventUrlSubstitutionExp: localhost:8053
+      sslTargetOverrideUrlSubstitutionExp: peer1.org1.hf.srezd.io
+      mappedHost: peer1.org1.hf.srezd.io
+      
+  orderer:
+    - pattern: (\w*)orderer.hf.srezd.io(\w*)
+      urlSubstitutionExp: localhost:7050
+      sslTargetOverrideUrlSubstitutionExp: orderer.hf.srezd.io
+      mappedHost: orderer.hf.srezd.io
+
+    - pattern: (\w+).hf.srezd.(\w+):(\d+)
+      urlSubstitutionExp: localhost:7050
+      sslTargetOverrideUrlSubstitutionExp: orderer.hf.srezd.io
+      mappedHost: orderer.hf.srezd.io

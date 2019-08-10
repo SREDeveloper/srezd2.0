@@ -1,0 +1,607 @@
+# "OrdererOrgs" - Definition of organizations managing orderer nodes
+OrdererOrgs:
+  - Name: Orderer
+    Domain: hf.srezd.io
+    # Specs is an array of Spec entries.  Each Spec entry consists of two fields : Hostname and CommonName
+    Specs:
+      - Hostname: orderer
+# "PeerOrgs" - Definition of organizations managing peer nodes
+PeerOrgs:
+  - Name: Org1Zd
+    Domain: org1.hf.srezd.io
+    # Allows for the definition of 1 or more hosts that are created sequentially
+    # from a template. By default, this looks like "peer%d" from 0 to Count-1.
+    # You may override the number of nodes (Count), the starting index (Start)
+    # or the template used to construct the name (Hostname).
+    Template:
+      Count: 8
+    Users:
+      # Count: The number of user accounts _in addition_ to Admin
+      Count: 8
+
+  - Name: Org2Zd
+    Domain: org2.hf.srezd.io
+    # Allows for the definition of 1 or more hosts that are created sequentially
+    # from a template. By default, this looks like "peer%d" from 0 to Count-1.
+    # You may override the number of nodes (Count), the starting index (Start)
+    # or the template used to construct the name (Hostname).
+    Template:
+      Count: 2
+    Users:
+      # Count: The number of user accounts _in addition_ to Admin
+      Count: 4
+
+  - Name: Org3Zd
+    Domain: org3.hf.srezd.io
+    # Allows for the definition of 1 or more hosts that are created sequentially
+    # from a template. By default, this looks like "peer%d" from 0 to Count-1.
+    # You may override the number of nodes (Count), the starting index (Start)
+    # or the template used to construct the name (Hostname).
+    Template:
+      Count: 2
+    Users:
+      # Count: The number of user accounts _in addition_ to Admin
+      Count: 4
+
+  - Name: Org4Zd
+    Domain: org4.hf.srezd.io
+    # Allows for the definition of 1 or more hosts that are created sequentially
+    # from a template. By default, this looks like "peer%d" from 0 to Count-1.
+    # You may override the number of nodes (Count), the starting index (Start)
+    # or the template used to construct the name (Hostname).
+    Template:
+      Count: 2
+    Users:
+      # Count: The number of user accounts _in addition_ to Admin
+      Count: 4
+
+  - Name: Org5Zd
+    Domain: org5.hf.srezd.io
+    # Allows for the definition of 1 or more hosts that are created sequentially
+    # from a template. By default, this looks like "peer%d" from 0 to Count-1.
+    # You may override the number of nodes (Count), the starting index (Start)
+    # or the template used to construct the name (Hostname).
+    Template:
+      Count: 3
+    Users:
+      # Count: The number of user accounts _in addition_ to Admin
+      Count: 6
+
+  - Name: Org6Zd
+    Domain: org6.hf.srezd.io
+    # Allows for the definition of 1 or more hosts that are created sequentially
+    # from a template. By default, this looks like "peer%d" from 0 to Count-1.
+    # You may override the number of nodes (Count), the starting index (Start)
+    # or the template used to construct the name (Hostname).
+    Template:
+      Count: 4
+    Users:
+      # Count: The number of user accounts _in addition_ to Admin
+      Count: 8
+  
+  - Name: Org7Zd
+    Domain: org7.hf.srezd.io
+    # Allows for the definition of 1 or more hosts that are created sequentially
+    # from a template. By default, this looks like "peer%d" from 0 to Count-1.
+    # You may override the number of nodes (Count), the starting index (Start)
+    # or the template used to construct the name (Hostname).
+    Template:
+      Count: 2
+    Users:
+      # Count: The number of user accounts _in addition_ to Admin
+      Count: 4
+
+  - Name: Org8Zd
+    Domain: org8.hf.srezd.io
+    # Allows for the definition of 1 or more hosts that are created sequentially
+    # from a template. By default, this looks like "peer%d" from 0 to Count-1.
+    # You may override the number of nodes (Count), the starting index (Start)
+    # or the template used to construct the name (Hostname).
+    Template:
+      Count: 2
+    Users:
+      # Count: The number of user accounts _in addition_ to Admin
+      Count: 4
+
+  - Name: Org9Zd
+    Domain: org9.hf.srezd.io
+    # Allows for the definition of 1 or more hosts that are created sequentially
+    # from a template. By default, this looks like "peer%d" from 0 to Count-1.
+    # You may override the number of nodes (Count), the starting index (Start)
+    # or the template used to construct the name (Hostname).
+    Template:
+      Count: 2
+    Users:
+      # Count: The number of user accounts _in addition_ to Admin
+      Count: 4
+
+  - Name: Org10Zd
+    Domain: org10.hf.srezd.io
+    # Allows for the definition of 1 or more hosts that are created sequentially
+    # from a template. By default, this looks like "peer%d" from 0 to Count-1.
+    # You may override the number of nodes (Count), the starting index (Start)
+    # or the template used to construct the name (Hostname).
+    Template:
+      Count: 12
+    Users:
+      # Count: The number of user accounts _in addition_ to Admin
+      Count: 12
+
+  - Name: Org11Zd
+    Domain: org11.hf.srezd.io
+    # Allows for the definition of 1 or more hosts that are created sequentially
+    # from a template. By default, this looks like "peer%d" from 0 to Count-1.
+    # You may override the number of nodes (Count), the starting index (Start)
+    # or the template used to construct the name (Hostname).
+    Template:
+      Count: 3
+    Users:
+      # Count: The number of user accounts _in addition_ to Admin
+      Count: 3
+
+  - Name: Org12Zd
+    Domain: org12.hf.srezd.io
+    # Allows for the definition of 1 or more hosts that are created sequentially
+    # from a template. By default, this looks like "peer%d" from 0 to Count-1.
+    # You may override the number of nodes (Count), the starting index (Start)
+    # or the template used to construct the name (Hostname).
+    Template:
+      Count: 3
+    Users:
+      # Count: The number of user accounts _in addition_ to Admin
+      Count: 3
+
+  - Name: Org13Zd
+    Domain: org13.hf.srezd.io
+    # Allows for the definition of 1 or more hosts that are created sequentially
+    # from a template. By default, this looks like "peer%d" from 0 to Count-1.
+    # You may override the number of nodes (Count), the starting index (Start)
+    # or the template used to construct the name (Hostname).
+    Template:
+      Count: 5
+    Users:
+      # Count: The number of user accounts _in addition_ to Admin
+      Count: 5
+
+  - Name: Org14Zd
+    Domain: org14.hf.srezd.io
+    # Allows for the definition of 1 or more hosts that are created sequentially
+    # from a template. By default, this looks like "peer%d" from 0 to Count-1.
+    # You may override the number of nodes (Count), the starting index (Start)
+    # or the template used to construct the name (Hostname).
+    Template:
+      Count: 5
+    Users:
+      # Count: The number of user accounts _in addition_ to Admin
+      Count: 5
+
+  - Name: Org15Zd
+    Domain: org15.hf.srezd.io
+    # Allows for the definition of 1 or more hosts that are created sequentially
+    # from a template. By default, this looks like "peer%d" from 0 to Count-1.
+    # You may override the number of nodes (Count), the starting index (Start)
+    # or the template used to construct the name (Hostname).
+    Template:
+      Count: 6
+    Users:
+      # Count: The number of user accounts _in addition_ to Admin
+      Count: 6
+
+  - Name: Org16Zd
+    Domain: org16.hf.srezd.io
+    # Allows for the definition of 1 or more hosts that are created sequentially
+    # from a template. By default, this looks like "peer%d" from 0 to Count-1.
+    # You may override the number of nodes (Count), the starting index (Start)
+    # or the template used to construct the name (Hostname).
+    Template:
+      Count: 6
+    Users:
+      # Count: The number of user accounts _in addition_ to Admin
+      Count: 6
+
+  - Name: Org17Zd
+    Domain: org17.hf.srezd.io
+    # Allows for the definition of 1 or more hosts that are created sequentially
+    # from a template. By default, this looks like "peer%d" from 0 to Count-1.
+    # You may override the number of nodes (Count), the starting index (Start)
+    # or the template used to construct the name (Hostname).
+    Template:
+      Count: 7
+    Users:
+      # Count: The number of user accounts _in addition_ to Admin
+      Count: 7
+
+  - Name: Org18Zd
+    Domain: org18.hf.srezd.io
+    # Allows for the definition of 1 or more hosts that are created sequentially
+    # from a template. By default, this looks like "peer%d" from 0 to Count-1.
+    # You may override the number of nodes (Count), the starting index (Start)
+    # or the template used to construct the name (Hostname).
+    Template:
+      Count: 7
+    Users:
+      # Count: The number of user accounts _in addition_ to Admin
+      Count: 7
+
+  - Name: Org19Zd
+    Domain: org19.hf.srezd.io
+    # Allows for the definition of 1 or more hosts that are created sequentially
+    # from a template. By default, this looks like "peer%d" from 0 to Count-1.
+    # You may override the number of nodes (Count), the starting index (Start)
+    # or the template used to construct the name (Hostname).
+    Template:
+      Count: 8
+    Users:
+      # Count: The number of user accounts _in addition_ to Admin
+      Count: 8
+
+  - Name: Org20Zd
+    Domain: org20.hf.srezd.io
+    # Allows for the definition of 1 or more hosts that are created sequentially
+    # from a template. By default, this looks like "peer%d" from 0 to Count-1.
+    # You may override the number of nodes (Count), the starting index (Start)
+    # or the template used to construct the name (Hostname).
+    Template:
+      Count: 12
+    Users:
+      # Count: The number of user accounts _in addition_ to Admin
+      Count: 12
+
+  - Name: Org21Zd
+    Domain: org21.hf.srezd.io
+    # Allows for the definition of 1 or more hosts that are created sequentially
+    # from a template. By default, this looks like "peer%d" from 0 to Count-1.
+    # You may override the number of nodes (Count), the starting index (Start)
+    # or the template used to construct the name (Hostname).
+    Template:
+      Count: 3
+    Users:
+      # Count: The number of user accounts _in addition_ to Admin
+      Count: 3
+
+  - Name: Org22Zd
+    Domain: org22.hf.srezd.io
+    # Allows for the definition of 1 or more hosts that are created sequentially
+    # from a template. By default, this looks like "peer%d" from 0 to Count-1.
+    # You may override the number of nodes (Count), the starting index (Start)
+    # or the template used to construct the name (Hostname).
+    Template:
+      Count: 3
+    Users:
+      # Count: The number of user accounts _in addition_ to Admin
+      Count: 3
+
+  - Name: Org23Zd
+    Domain: org23.hf.srezd.io
+    # Allows for the definition of 1 or more hosts that are created sequentially
+    # from a template. By default, this looks like "peer%d" from 0 to Count-1.
+    # You may override the number of nodes (Count), the starting index (Start)
+    # or the template used to construct the name (Hostname).
+    Template:
+      Count: 5
+    Users:
+      # Count: The number of user accounts _in addition_ to Admin
+      Count: 5
+
+  - Name: Org24Zd
+    Domain: org24.hf.srezd.io
+    # Allows for the definition of 1 or more hosts that are created sequentially
+    # from a template. By default, this looks like "peer%d" from 0 to Count-1.
+    # You may override the number of nodes (Count), the starting index (Start)
+    # or the template used to construct the name (Hostname).
+    Template:
+      Count: 5
+    Users:
+      # Count: The number of user accounts _in addition_ to Admin
+      Count: 5
+
+  - Name: Org25Zd
+    Domain: org25.hf.srezd.io
+    # Allows for the definition of 1 or more hosts that are created sequentially
+    # from a template. By default, this looks like "peer%d" from 0 to Count-1.
+    # You may override the number of nodes (Count), the starting index (Start)
+    # or the template used to construct the name (Hostname).
+    Template:
+      Count: 6
+    Users:
+      # Count: The number of user accounts _in addition_ to Admin
+      Count: 6
+
+  - Name: Org26Zd
+    Domain: org26.hf.srezd.io
+    # Allows for the definition of 1 or more hosts that are created sequentially
+    # from a template. By default, this looks like "peer%d" from 0 to Count-1.
+    # You may override the number of nodes (Count), the starting index (Start)
+    # or the template used to construct the name (Hostname).
+    Template:
+      Count: 6
+    Users:
+      # Count: The number of user accounts _in addition_ to Admin
+      Count: 6
+
+  - Name: Org27Zd
+    Domain: org27.hf.srezd.io
+    # Allows for the definition of 1 or more hosts that are created sequentially
+    # from a template. By default, this looks like "peer%d" from 0 to Count-1.
+    # You may override the number of nodes (Count), the starting index (Start)
+    # or the template used to construct the name (Hostname).
+    Template:
+      Count: 7
+    Users:
+      # Count: The number of user accounts _in addition_ to Admin
+      Count: 7
+
+  - Name: Org28Zd
+    Domain: org28.hf.srezd.io
+    # Allows for the definition of 1 or more hosts that are created sequentially
+    # from a template. By default, this looks like "peer%d" from 0 to Count-1.
+    # You may override the number of nodes (Count), the starting index (Start)
+    # or the template used to construct the name (Hostname).
+    Template:
+      Count: 7
+    Users:
+      # Count: The number of user accounts _in addition_ to Admin
+      Count: 7
+
+  - Name: Org29Zd
+    Domain: org29.hf.srezd.io
+    # Allows for the definition of 1 or more hosts that are created sequentially
+    # from a template. By default, this looks like "peer%d" from 0 to Count-1.
+    # You may override the number of nodes (Count), the starting index (Start)
+    # or the template used to construct the name (Hostname).
+    Template:
+      Count: 8
+    Users:
+      # Count: The number of user accounts _in addition_ to Admin
+      Count: 8
+
+  - Name: Org30Zd
+    Domain: org30.hf.srezd.io
+    # Allows for the definition of 1 or more hosts that are created sequentially
+    # from a template. By default, this looks like "peer%d" from 0 to Count-1.
+    # You may override the number of nodes (Count), the starting index (Start)
+    # or the template used to construct the name (Hostname).
+    Template:
+      Count: 12
+    Users:
+      # Count: The number of user accounts _in addition_ to Admin
+      Count: 12
+
+  - Name: Org31Zd
+    Domain: org31.hf.srezd.io
+    # Allows for the definition of 1 or more hosts that are created sequentially
+    # from a template. By default, this looks like "peer%d" from 0 to Count-1.
+    # You may override the number of nodes (Count), the starting index (Start)
+    # or the template used to construct the name (Hostname).
+    Template:
+      Count: 3
+    Users:
+      # Count: The number of user accounts _in addition_ to Admin
+      Count: 3
+
+  - Name: Org32Zd
+    Domain: org32.hf.srezd.io
+    # Allows for the definition of 1 or more hosts that are created sequentially
+    # from a template. By default, this looks like "peer%d" from 0 to Count-1.
+    # You may override the number of nodes (Count), the starting index (Start)
+    # or the template used to construct the name (Hostname).
+    Template:
+      Count: 3
+    Users:
+      # Count: The number of user accounts _in addition_ to Admin
+      Count: 3
+
+  - Name: Org33Zd
+    Domain: org33.hf.srezd.io
+    # Allows for the definition of 1 or more hosts that are created sequentially
+    # from a template. By default, this looks like "peer%d" from 0 to Count-1.
+    # You may override the number of nodes (Count), the starting index (Start)
+    # or the template used to construct the name (Hostname).
+    Template:
+      Count: 5
+    Users:
+      # Count: The number of user accounts _in addition_ to Admin
+      Count: 5
+
+  - Name: Org34Zd
+    Domain: org34.hf.srezd.io
+    # Allows for the definition of 1 or more hosts that are created sequentially
+    # from a template. By default, this looks like "peer%d" from 0 to Count-1.
+    # You may override the number of nodes (Count), the starting index (Start)
+    # or the template used to construct the name (Hostname).
+    Template:
+      Count: 5
+    Users:
+      # Count: The number of user accounts _in addition_ to Admin
+      Count: 5
+
+  - Name: Org35Zd
+    Domain: org35.hf.srezd.io
+    # Allows for the definition of 1 or more hosts that are created sequentially
+    # from a template. By default, this looks like "peer%d" from 0 to Count-1.
+    # You may override the number of nodes (Count), the starting index (Start)
+    # or the template used to construct the name (Hostname).
+    Template:
+      Count: 6
+    Users:
+      # Count: The number of user accounts _in addition_ to Admin
+      Count: 6
+
+  - Name: Org36Zd
+    Domain: org36.hf.srezd.io
+    # Allows for the definition of 1 or more hosts that are created sequentially
+    # from a template. By default, this looks like "peer%d" from 0 to Count-1.
+    # You may override the number of nodes (Count), the starting index (Start)
+    # or the template used to construct the name (Hostname).
+    Template:
+      Count: 6
+    Users:
+      # Count: The number of user accounts _in addition_ to Admin
+      Count: 6
+
+  - Name: Org37Zd
+    Domain: org37.hf.srezd.io
+    # Allows for the definition of 1 or more hosts that are created sequentially
+    # from a template. By default, this looks like "peer%d" from 0 to Count-1.
+    # You may override the number of nodes (Count), the starting index (Start)
+    # or the template used to construct the name (Hostname).
+    Template:
+      Count: 7
+    Users:
+      # Count: The number of user accounts _in addition_ to Admin
+      Count: 7
+
+  - Name: Org38Zd
+    Domain: org38.hf.srezd.io
+    # Allows for the definition of 1 or more hosts that are created sequentially
+    # from a template. By default, this looks like "peer%d" from 0 to Count-1.
+    # You may override the number of nodes (Count), the starting index (Start)
+    # or the template used to construct the name (Hostname).
+    Template:
+      Count: 7
+    Users:
+      # Count: The number of user accounts _in addition_ to Admin
+      Count: 7
+
+  - Name: Org39Zd
+    Domain: org39.hf.srezd.io
+    # Allows for the definition of 1 or more hosts that are created sequentially
+    # from a template. By default, this looks like "peer%d" from 0 to Count-1.
+    # You may override the number of nodes (Count), the starting index (Start)
+    # or the template used to construct the name (Hostname).
+    Template:
+      Count: 8
+    Users:
+      # Count: The number of user accounts _in addition_ to Admin
+      Count: 8
+  - Name: Org40Zd
+    Domain: org40.hf.srezd.io
+    # Allows for the definition of 1 or more hosts that are created sequentially
+    # from a template. By default, this looks like "peer%d" from 0 to Count-1.
+    # You may override the number of nodes (Count), the starting index (Start)
+    # or the template used to construct the name (Hostname).
+    Template:
+      Count: 12
+    Users:
+      # Count: The number of user accounts _in addition_ to Admin
+      Count: 12
+
+  - Name: Org41Zd
+    Domain: org41.hf.srezd.io
+    # Allows for the definition of 1 or more hosts that are created sequentially
+    # from a template. By default, this looks like "peer%d" from 0 to Count-1.
+    # You may override the number of nodes (Count), the starting index (Start)
+    # or the template used to construct the name (Hostname).
+    Template:
+      Count: 3
+    Users:
+      # Count: The number of user accounts _in addition_ to Admin
+      Count: 3
+
+  - Name: Org42Zd
+    Domain: org42.hf.srezd.io
+    # Allows for the definition of 1 or more hosts that are created sequentially
+    # from a template. By default, this looks like "peer%d" from 0 to Count-1.
+    # You may override the number of nodes (Count), the starting index (Start)
+    # or the template used to construct the name (Hostname).
+    Template:
+      Count: 3
+    Users:
+      # Count: The number of user accounts _in addition_ to Admin
+      Count: 3
+
+  - Name: Org43Zd
+    Domain: org43.hf.srezd.io
+    # Allows for the definition of 1 or more hosts that are created sequentially
+    # from a template. By default, this looks like "peer%d" from 0 to Count-1.
+    # You may override the number of nodes (Count), the starting index (Start)
+    # or the template used to construct the name (Hostname).
+    Template:
+      Count: 5
+    Users:
+      # Count: The number of user accounts _in addition_ to Admin
+      Count: 5
+
+  - Name: Org44Zd
+    Domain: org44.hf.srezd.io
+    # Allows for the definition of 1 or more hosts that are created sequentially
+    # from a template. By default, this looks like "peer%d" from 0 to Count-1.
+    # You may override the number of nodes (Count), the starting index (Start)
+    # or the template used to construct the name (Hostname).
+    Template:
+      Count: 5
+    Users:
+      # Count: The number of user accounts _in addition_ to Admin
+      Count: 5
+
+  - Name: Org45Zd
+    Domain: org45.hf.srezd.io
+    # Allows for the definition of 1 or more hosts that are created sequentially
+    # from a template. By default, this looks like "peer%d" from 0 to Count-1.
+    # You may override the number of nodes (Count), the starting index (Start)
+    # or the template used to construct the name (Hostname).
+    Template:
+      Count: 6
+    Users:
+      # Count: The number of user accounts _in addition_ to Admin
+      Count: 6
+
+  - Name: Org46Zd
+    Domain: org46.hf.srezd.io
+    # Allows for the definition of 1 or more hosts that are created sequentially
+    # from a template. By default, this looks like "peer%d" from 0 to Count-1.
+    # You may override the number of nodes (Count), the starting index (Start)
+    # or the template used to construct the name (Hostname).
+    Template:
+      Count: 6
+    Users:
+      # Count: The number of user accounts _in addition_ to Admin
+      Count: 6
+
+  - Name: Org47Zd
+    Domain: org47.hf.srezd.io
+    # Allows for the definition of 1 or more hosts that are created sequentially
+    # from a template. By default, this looks like "peer%d" from 0 to Count-1.
+    # You may override the number of nodes (Count), the starting index (Start)
+    # or the template used to construct the name (Hostname).
+    Template:
+      Count: 7
+    Users:
+      # Count: The number of user accounts _in addition_ to Admin
+      Count: 7
+
+  - Name: Org48Zd
+    Domain: org48.hf.srezd.io
+    # Allows for the definition of 1 or more hosts that are created sequentially
+    # from a template. By default, this looks like "peer%d" from 0 to Count-1.
+    # You may override the number of nodes (Count), the starting index (Start)
+    # or the template used to construct the name (Hostname).
+    Template:
+      Count: 7
+    Users:
+      # Count: The number of user accounts _in addition_ to Admin
+      Count: 7
+
+  - Name: Org49Zd
+    Domain: org49.hf.srezd.io
+    # Allows for the definition of 1 or more hosts that are created sequentially
+    # from a template. By default, this looks like "peer%d" from 0 to Count-1.
+    # You may override the number of nodes (Count), the starting index (Start)
+    # or the template used to construct the name (Hostname).
+    Template:
+      Count: 8
+    Users:
+      # Count: The number of user accounts _in addition_ to Admin
+      Count: 8
+
+  - Name: Org50Zd
+    Domain: org50.hf.srezd.io
+    # Allows for the definition of 1 or more hosts that are created sequentially
+    # from a template. By default, this looks like "peer%d" from 0 to Count-1.
+    # You may override the number of nodes (Count), the starting index (Start)
+    # or the template used to construct the name (Hostname).
+    Template:
+      Count: 12
+    Users:
+      # Count: The number of user accounts _in addition_ to Admin
+      Count: 12
